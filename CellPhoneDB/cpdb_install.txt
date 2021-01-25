@@ -1,0 +1,11 @@
+This is an instruction on how to install and run CellPhoneDB on BioHPC. CellPhoneDB is used for cell-cell communication. Please visit https://www.cellphonedb.org for more information
+
+```
+module load python/3.7.x-anaconda
+python -m venv cpdb-venv
+source cpdb-venv/bin/activate
+pip install scikit-learn=0.23
+pip install cellphonedb
+```
+
+After installtion is complete, please see cpdb.txt on how to run CellPhoneDB on your data set. If you have not already, run one of the cpdb.R codes to generate the input files needed.

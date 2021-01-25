@@ -1,0 +1,26 @@
+This is an instruction on how to run CellPhoneDB on BioHPC. CellPhoneDB is used for cell-cell communication. Please visit https://www.cellphonedb.org for more information
+Before running this script, please make sure CellPhoneDB is installed properly using cpdb_install.txt and the neccessary input files are created using one of the cpdb.R scripts provided.
+
+To run the actual CellPhoneDB analysis:
+```
+module load python/3.7.x-anaconda
+source cpdb-venv/bin/activate
+cd /path/to/directory/
+
+cellphonedb method statistical_analysis sample_meta.txt sample_counts.txt
+```
+
+To generate plots from CellPhoneDB analysis:
+Plot outputs are ggplot2 plots, so make sure ggplot2 is installed in your R.
+```
+module load R/4.0.2-gccmkl python/3.7.x-anaconda
+source cpdb-venv/bin/activate
+export LD_PRELOAD=/cm/shared/apps/python/3.7.x-anaconda/lib/libmkl_core.so:/cm/shared/apps/python/3.7.x-anaconda/lib/libmkl_sequential.so
+cd /path/to/directory/
+
+cellphonedb plot dot_plot
+cellphonedb plot heatmap_plot sample_meta.txt
+```
+
+For more indepth breakdown of plots please see https://github.com/Teichlab/cellphonedb.
+All plots can be adjusted using ggplot2 functions as well.
